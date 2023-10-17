@@ -5,7 +5,7 @@ const {
   create,
   update,
   deleteOne
-} = require('../../controllers/thoughtController');
+} = require('../../controllers/thoughtControllers');
 
 
 // /api/thoughts
