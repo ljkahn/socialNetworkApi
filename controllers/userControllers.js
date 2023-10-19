@@ -14,7 +14,7 @@ module.exports = {
     //get one user
     async getOne(req, res) {
         try {
-            const user = await User.findOne({_id: req.params.userId}).select('-__v');
+            const user = await User.findOne({_id: req.params.userId}).select('-__v').populate('thoughts friends')
 
             if(!user) {
                 return res.status(404).json({message: 'No user with that ID!'})
@@ -60,16 +60,43 @@ module.exports = {
     //delete a user
     async deleteOne (req, res) {
         try {
-            const user = await User.findByIdAndDelete({_id:req.params.UserID})
+            const user = await User.findByIdAndDelete({_id:req.params.userId})
 
             if(!user) {
                 return res.status(404).json({ message: 'No user with that ID!'})
             }
+            res.status(200).json({message: "User deleted!"})
         } catch (err) {
             res.status(500).json(err);
         }
-    }
+    },
 
+//add friend
+async addFriend (req, res) {
+    try {
+        const friend = await User.findByIdAndUpdate(req.params.userId, {
+            $push: {friends: req.params.friendId}})
+            return res.status(200).json(friend)
+    } catch (err) {
+        res.status(500).json(err)
+    }
+}, 
+
+//remove friend
+
+    async deleteFriend (req, res) {
+        try {
+            const user = await User.findByIdAndDelete({_id:req.params.userId})
+
+            if(!user) {
+                return res.status(404).json({ message: 'No friend with that ID!'})
+            }
+            res.status(200).json({message: "Friend deleted!"})
+        } catch (err) {
+            res.status(500).json(err);
+        }
+    },
 
 
 }
+
