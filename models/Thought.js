@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const dayJS = require('dayjs');
-
+const reactionSchema = require('./Reaction')
 function formatTime (timestamp) {
 const day = dayJS(timestamp)
 return day.format('DD/MM/YYYY')
