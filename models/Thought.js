@@ -26,10 +26,10 @@ const thoughtSchema = new mongoose.Schema({
         
     },
 
-    reactions: {
+    reactions: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'reaction',
-    }
+    }]
         
 },
 
