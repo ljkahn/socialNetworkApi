@@ -1,7 +1,7 @@
 const { Schema, Types } = require('mongoose');
 
 
-const reactionSchema = new mongoose.Schema(
+const reactionSchema = new Schema(
     {
     reactionId: {
         type: Schema.Types.ObjectId, 
@@ -11,7 +11,7 @@ const reactionSchema = new mongoose.Schema(
     reactionBody: {
         type: String,
         required: true,
-        maaxLength: 280,
+        maxLength: 280,
     },
     
     username: {
@@ -23,7 +23,7 @@ const reactionSchema = new mongoose.Schema(
     createdAt: {
         type: Date,
         default: Date.now,
-        get: date => new Date(date).toLocaleString()
+        get: date => new Date(date).toLocalString()
     },
         
 },
