@@ -18,7 +18,7 @@ To create a new user, make a POST request to http://localhost:3001/api/users.
 
 To create a new thought, make a POST request to http://localhost:3001/api/thoughts.
 
-To create a reaction to a thought, make a POST request to http://localhost:3001/api/thoughts/{thoughtId}/reactions, where {thoughtId} is the ID of an existing thought.
+To create a reaction to a thought, make a POST request to http://localhost:3001/api/thoughts/{thoughtId}/reactions, where thoughtId is the ID of an existing thought.
 
 To delete a user, thought, or reaction, make a DELETE request to the appropriate route. Example: DELETE http://localhost:3001/api/users/{userId} should delete the user with the specified ID.
 
