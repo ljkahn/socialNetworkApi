@@ -42,7 +42,7 @@ module.exports = {
     async update(req, res) {
         try {
             const user = await User.findOneAndUpdate(
-                {username: req.params.userId},
+                {_id: req.params.userId},
                 {$pull: { thoughts: req.params.userId}},
                 {runValidators: true, new: true}
                 );
@@ -50,7 +50,7 @@ module.exports = {
                 if(!user) {
                     return res.status(404).json({ message: 'No user with that ID!'})
                 }
-                res.json(user);
+                res.status(200).json({ message: 'User updated successfully!' });;
         }   catch(err) {
             res.status(500).json(err);
         }
