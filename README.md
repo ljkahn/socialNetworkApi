@@ -4,6 +4,8 @@
 
 To install this on your local environment, git clone the repo. Then run 'npm i' to install the dev dependencies associated with the app. Then copy and paste routes from the thoughtRoutes.js and userRoutes.js into a testing app like Insomnia or Postman. Before running GET routes, it is helpful to run POST routes to create new users and respective thoughts so that GET routes will retrieve some type of data.
 
+To see a video demonstration of this app click [here!](assets/images/walkthrough.gif)
+
 # Usage
 
 To start the server and sync the Mongoose models with the MongoDB database, run the following command: npm i
